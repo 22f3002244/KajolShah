@@ -1,0 +1,37 @@
+<section id="practice">
+  <div class="sec-header r">
+    <div class="sec-tag">Practice Areas</div>
+    <h2>Legal Services</h2>
+    <div class="tabs">
+      <button class="tab on"  onclick="switchTab('lit',    this)">Litigation</button>
+      <button class="tab"     onclick="switchTab('nonlit', this)">Non-Litigation</button>
+    </div>
+  </div>
+
+  <!-- LITIGATION -->
+  <div id="panel-lit" class="tab-panel on">
+    <div class="cards">
+      {% for card in litigation_services %}
+      <div class="card r{% if loop.index % 3 == 2 %} d1{% elif loop.index % 3 == 0 %} d2{% endif %}">
+        <div class="card-n">{{ "%02d"|format(loop.index) }}</div>
+        <div class="card-title">{{ card.title }}</div>
+        <div class="card-desc">{{ card.desc }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- NON-LITIGATION -->
+  <div id="panel-nonlit" class="tab-panel">
+    <div class="cards">
+      {% for card in nonlit_services %}
+      <div class="card r{% if loop.index % 3 == 2 %} d1{% elif loop.index % 3 == 0 %} d2{% endif %}">
+        <div class="card-n">{{ "%02d"|format(loop.index + litigation_services|length) }}</div>
+        <div class="card-title">{{ card.title }}</div>
+        <div class="card-desc">{{ card.desc }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<div class="gold-rule"></div>

@@ -1,0 +1,63 @@
+<section id="appointment">
+  <div class="appt-wrap">
+    <div class="appt-head r">
+      <div class="sec-tag">Book a Consultation</div>
+      <h2>Schedule Your Appointment</h2>
+      <p>Submit your details and I will confirm your consultation within 24 hours. All communications are strictly confidential.</p>
+    </div>
+
+    {# ✏️ Replace YOUR_FORMSPREE_ID with your actual Formspree form ID #}
+    <form class="form-box r d1" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+
+      <div class="f-row">
+        <div class="f-grp">
+          <label>Full Name *</label>
+          <input type="text" name="name" placeholder="Your full name" required />
+        </div>
+        <div class="f-grp">
+          <label>Phone Number *</label>
+          <input type="tel" name="phone" placeholder="+91 XXXXX XXXXX" required />
+        </div>
+      </div>
+
+      <div class="f-row">
+        <div class="f-grp">
+          <label>Email Address *</label>
+          <input type="email" name="email" placeholder="yourname@email.com" required />
+        </div>
+        <div class="f-grp">
+          <label>Nature of Matter *</label>
+          <select name="matter_type" required>
+            <option value="" disabled selected>Select a service</option>
+            <optgroup label="Litigation">
+              {% for s in litigation_services %}
+              <option>{{ s.title }}</option>
+              {% endfor %}
+            </optgroup>
+            <optgroup label="Non-Litigation">
+              {% for s in nonlit_services %}
+              <option>{{ s.title }}</option>
+              {% endfor %}
+            </optgroup>
+            <option>Other / Not Sure</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="f-row">
+        <div class="f-grp f-full">
+          <label>Brief Description</label>
+          <textarea name="description" rows="4"
+            placeholder="Describe your matter briefly. All information shared is strictly confidential and protected under attorney-client privilege."></textarea>
+        </div>
+      </div>
+
+      <div class="f-submit">
+        <button type="submit" class="btn-gold">Submit Enquiry &nbsp;&#8594;</button>
+        <div class="f-note">&#128274;&nbsp; All information submitted is strictly confidential and protected under attorney-client privilege.</div>
+      </div>
+
+    </form>
+  </div>
+</section>
+<div class="gold-rule"></div>

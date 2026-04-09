@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Adv. Kajol Shah — Independent Advocate and Counsel based in Mumbai. Practising before the Bombay High Court and specialised Tribunals across Maharashtra in Civil, Criminal, Corporate, POSH, and Commercial law." />
+  <title>{% block title %}Adv. Kajol Shah — Advocate & Counsel | Mumbai{% endblock %}</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+
+  {% block extra_head %}{% endblock %}
+</head>
+
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cur"></div>
+  <div class="cursor-ring" id="ring"></div>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="#hero" class="logo">Adv. <span>Kajol Shah</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#practice">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#appointment" class="nav-btn">Book Consultation</a></li>
+    </ul>
+    <div class="hamburger" id="ham" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mob-menu" id="mobMenu">
+    <button class="mob-close" onclick="toggleMenu()">&#10005;</button>
+    <a href="#about"       onclick="toggleMenu()">About</a>
+    <a href="#practice"    onclick="toggleMenu()">Services</a>
+    <a href="#appointment" onclick="toggleMenu()">Book Consultation</a>
+  </div>
+
+  <!-- Page Content -->
+  {% block content %}{% endblock %}
+
+  <!-- Footer -->
+  <footer>
+    <div class="f-logo">Adv. <span>Kajol Shah</span> &mdash; Advocate &amp; Counsel, Mumbai</div>
+    <div class="f-copy">&copy; 2026 Adv. Kajol Shah. All rights reserved.</div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+</html>
